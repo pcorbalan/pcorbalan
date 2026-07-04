@@ -1,15 +1,17 @@
 # Hola! soy Pablo Corbalan 👋
 
 **Ecólogo | Becario Doctoral CONICET | Teledetección & Carbono**  
-Santiago del Estero, Argentina - Universidad Nacional de Santiago del Estero (UNSE)
+Santiago del Estero, Argentina - Facultad de Ciencias Forestales, UNSE.
 
 ---
 
 ## Sobre mí
 
-Soy Licenciado en Ecología y becario doctoral del CONICET, especializado en la dinámica del carbono en el Chaco Seco. Mi trabajo combina ecología de campo, teledetección y análisis geoespacial para entender cómo los cambios en el uso del suelo afectan los stocks y flujos de carbono en uno de los ecosistemas con mayor presión de deforestación de Sudamérica.
+Soy Licenciado en Ecología y becario doctoral del CONICET trabajando en la intersección entre teledetección, análisis de series temporales y dinámica del carbono en el Chaco Seco argentino — uno de los ecosistemas con mayor presión de deforestación de Sudamérica.
 
-Me interesa construir puentes entre la ciencia y su aplicación práctica: desde herramientas de monitoreo hasta la evaluación de proyectos de carbono a escala predial.
+Mi investigación busca superar los enfoques estáticos clásicos integrando explícitamente la dimensión temporal del uso del suelo como variable explicativa del comportamiento del carbono. El resultado final será una herramienta operativa accesible para productores, técnicos ambientales y tomadores de decisión.
+
+Me interesa construir puentes entre la ciencia y su aplicación práctica: desde herramientas de monitoreo hasta la evaluación de proyectos de carbono a distintas escalas.
 
 ---
 
@@ -21,7 +23,18 @@ Me interesa construir puentes entre la ciencia y su aplicación práctica: desde
 - Generación de trayectorias de uso del suelo para el cálculo de balances de carbono
 - Desarrollo de herramientas de análisis a escala predial para productores, técnicos y tomadores de decisión
 - Integración de sensores remotos con modelos de carbono a escala de paisaje
+Doctorado en Ciencias Biológicas · UNSE / CONICET
 
+
+"Trayectorias de uso del suelo y dinámica del carbono en el Chaco Seco: implicancias para el balance y la captura de carbono"
+
+
+
+Dirección: Dr. Hugo Zerda · Codirección: Dr. Néstor Ignacio Gasparri (IER-CONICET)
+
+El proyecto integra cuatro etapas metodológicas interdependientes:
+
+EtapaDescripción🗺️ Trayectorias de uso del sueloClasificación supervisada (Random Forest, SVM) sobre series temporales Landsat/Sentinel/MODIS (2000–actualidad) mediante GEE; análisis de secuencias y clustering para identificar patrones de deforestación, abandono y regeneración🌱 Balance de carbonoEstimación de carbono en biomasa aérea mediante modelos estadísticos y ML, validados con parcelas permanentes del IER; métricas: RMSE, R², Bias🤖 Modelado predictivoModelos XGBoost y redes neuronales para predecir el potencial de captura futura bajo distintos escenarios; variables predictoras: trayectorias históricas, clima, suelo, topografía y factores antrópicos🛠️ Herramienta operativaGEE App replicable y adaptable para estimación de balance de carbono a escala predial, con visualización, exportación de resultados y escalamiento regional
 ---
 
 ## Habilidades técnicas
