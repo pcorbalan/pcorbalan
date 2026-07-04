@@ -1,7 +1,7 @@
 # Hola! soy Pablo Corbalan 👋
 
 **Ecólogo | Becario Doctoral CONICET | Teledetección & Carbono**  
-📍 Santiago del Estero, Argentina · Universidad Nacional de Santiago del Estero (UNSE)
+Santiago del Estero, Argentina - Universidad Nacional de Santiago del Estero (UNSE)
 
 ---
 
