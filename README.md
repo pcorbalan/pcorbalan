@@ -65,7 +65,7 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 | Repositorio | Descripción | Estado |
 |-------------|-------------|--------|
 | `chaco-land-trajectories` | Clasificación supervisada y análisis de trayectorias de uso del suelo en el Chaco Seco 2000–2024 | 🔄 En desarrollo |
-| `chaco-carbon-balance` | Estimación del balance de carbono en biomasa aérea según trayectorias de uso del suelo | 🔄 En desarrollo |
+| `chaco-carbon-balance` | Estimación del balance de carbono en biomasa aérea según trayectorias de uso del suelo | 📋 Próximamente |
 | `carbon-capture-model` | Modelos predictivos (XGBoost / redes neuronales) del potencial de captura de carbono | 📋 Próximamente |
 | `gee-carbon-app` | Herramienta operativa en Google Earth Engine para estimación de carbono a escala predial | 📋 Próximamente |
 
