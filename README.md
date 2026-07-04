@@ -26,14 +26,14 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 
 | Etapa | Descripción |
 |-------|-------------|
-| 🗺️ **Trayectorias de uso del suelo** | Clasificación supervisada (Random Forest, SVM) sobre series temporales Landsat/Sentinel/MODIS (2000–actualidad) mediante GEE; análisis de secuencias y clustering para identificar patrones de deforestación, abandono y regeneración |
-| 🌱 **Balance de carbono** | Estimación de carbono en biomasa aérea mediante modelos estadísticos y ML, validados con parcelas permanentes del IER; métricas: RMSE, R², Bias |
-| 🤖 **Modelado predictivo** | Modelos XGBoost y redes neuronales para predecir el potencial de captura futura bajo distintos escenarios; variables predictoras: trayectorias históricas, clima, suelo, topografía y factores antrópicos |
-| 🛠️ **Herramienta operativa** | GEE App replicable y adaptable para estimación de balance de carbono a escala predial, con visualización, exportación de resultados y escalamiento regional |
+|**Trayectorias de uso del suelo** | Clasificación supervisada (Random Forest, SVM) sobre series temporales Landsat/Sentinel/MODIS (2000–actualidad) mediante GEE; análisis de secuencias y clustering para identificar patrones de deforestación, abandono y regeneración |
+|**Balance de carbono** | Estimación de carbono en biomasa aérea mediante modelos estadísticos y ML, validados con parcelas permanentes del IER; métricas: RMSE, R², Bias |
+|**Modelado predictivo** | Modelos XGBoost y redes neuronales para predecir el potencial de captura futura bajo distintos escenarios; variables predictoras: trayectorias históricas, clima, suelo, topografía y factores antrópicos |
+|**Herramienta operativa** | GEE App replicable y adaptable para estimación de balance de carbono a escala predial, con visualización, exportación de resultados y escalamiento regional |
 
 ---
 
-## 🛠️ Stack técnico
+## Stack técnico
 
 **Lenguajes & entornos**
 
@@ -60,7 +60,7 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 
 ---
 
-## 📂 Proyectos
+## Proyectos
 
 | Repositorio | Descripción | Estado |
 |-------------|-------------|--------|
@@ -71,7 +71,7 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 
 ---
 
-## 🎯 Hacia dónde voy
+## Hacia dónde voy
 
 - **Consultoría ambiental** orientada a EIA, monitoreo de bosques y planificación territorial en el NOA
 - **Mercados de carbono** (REDD+, VCS/Verra) — estimación de líneas base y MRV en el Chaco Seco
@@ -82,9 +82,9 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 
 ## 📫 Contacto
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tu@email.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pablo-corbalan)
-[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://researchgate.net/profile/pablo-corbalan)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pablocorbalan9898@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-corbalan-34982b2ba/)
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)]()
 
 ---
 
