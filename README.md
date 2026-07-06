@@ -79,26 +79,12 @@ El proyecto integra cuatro etapas metodológicas interdependientes:
 - **Transferencia tecnológica** — herramientas geoespaciales accesibles para productores y técnicos rurales
 
 ---
-GitHub Stats
-
-<p align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=pcorbalan&show_icons=true&theme=default&include_all_commits=true&count_private=true&hide_border=true"/>
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=pcorbalan&layout=compact&langs_count=6&theme=default&hide_border=true"/>
-</p>
-
----
 
 ## 📫 Contacto
 
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pablocorbalan9898@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-corbalan-34982b2ba/)
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)]()
-
----
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=pcorbalan&label=Visitas+al+perfil&color=4285F4&style=flat" alt="pcorbalan" />
-</p>
 
 ---
 
