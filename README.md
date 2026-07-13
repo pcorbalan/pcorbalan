@@ -53,7 +53,7 @@ Clasificación supervisada · Análisis espaciotemporal · Machine learning · M
 
 Me gustaría contribuir al desarrollo de herramientas concretas que permitan estimar el balance de carbono y el potencial de captura a escala predial, aplicables tanto en contextos de planificación territorial como en proyectos de mercados de carbono voluntarios.
 
-El producto final de mi doctorado es una aplicación en Google Earth Engine donde un usuario puede ingresar un lote o área de interés y obtener estimaciones del balance histórico de carbono y predicciones de captura futura en función de sus trayectorias de uso del suelo. Eso tiene aplicaciones directas en REDD+, VCS y otros estándares del mercado de carbono.
+El producto final de mi doctorado es una aplicación en Google Earth Engine donde un usuario puede ingresar un lote o área de interés y obtener estimaciones del balance histórico de carbono y predicciones de captura futura en función de sus trayectorias de uso del suelo. Eso tendría aplicaciones directas en REDD+, VCS y otros estándares del mercado de carbono.
 
 A futuro me interesa trabajar en consultoría ambiental o en empresas del sector de carbono, aportando la combinación de conocimiento ecológico, capacidad de análisis geoespacial y manejo de herramientas de machine learning aplicadas al territorio.
 
