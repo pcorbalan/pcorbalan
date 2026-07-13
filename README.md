@@ -39,10 +39,16 @@ Director: Dr. Hugo Zerda
 Google Earth Engine · QGIS · Landsat · Sentinel-1/2 · MODIS · GEDI · MapBiomas
 
 **Programación**
-Python · JavaScript (GEE API)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
 **Librerías Python**
-GeoPandas · Rasterio · Pandas · NumPy · Matplotlib
+![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=flat&logo=python&logoColor=white)
+![Rasterio](https://img.shields.io/badge/Rasterio-4B8BBE?style=flat&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
 
 **Métodos**
 Clasificación supervisada · Análisis espaciotemporal · Machine learning · Modelado de carbono
