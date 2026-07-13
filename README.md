@@ -1,92 +1,54 @@
-# Hola! soy Pablo Corbalan 👋
+# Raster de profundidad — Embalse Río Hondo (2001)
 
-**Ecólogo | Becario Doctoral CONICET | Teledetección & Carbono**  
-Santiago del Estero, Argentina - Facultad de Ciencias Forestales, UNSE.
+Generación de un raster continuo de profundidad para el embalse Río Hondo (Santiago del Estero / Tucumán, Argentina) a partir de datos batimétricos históricos relevados con ecosonda + GPS.
 
----
+## Descripción
 
-## Sobre mí
+Este repositorio contiene el flujo de trabajo para convertir una nube de puntos batimétricos (relevamiento de julio de 2001) en un raster de profundidad interpolado, junto con una capa complementaria de confianza espacial que indica qué tan lejos está cada píxel del dato medido más cercano.
 
-Soy Licenciado en Ecología y becario doctoral del CONICET trabajando en la intersección entre teledetección, análisis de series temporales y dinámica del carbono en el Chaco Seco argentino — uno de los ecosistemas con mayor presión de deforestación de Sudamérica.
+## Datos de origen
 
-Mi investigación busca superar los enfoques estáticos clásicos integrando explícitamente la dimensión temporal del uso del suelo como variable explicativa del comportamiento del carbono. El resultado final será una herramienta operativa accesible para productores, técnicos ambientales y tomadores de decisión.
+- **Fuente**: relevamiento batimétrico del embalse Río Hondo, julio de 2001 (ecosonda + GPS embarcado).
+- **Cobertura**: ~18.000 puntos con profundidad medida, incluyendo el perímetro navegado (línea de costa al momento del relevamiento) y transectas de cruce del cuerpo de agua.
+- **Cota de referencia del embalse el día del relevamiento**: 273,11 m s.n.m.
+- **Sistema de coordenadas**: Gauss-Krüger Faja 3 (Argentina) — `EPSG:22183` / equivalente PROJ4 `+proj=tmerc +lat_0=-90 +lon_0=-66 +k=1 +x_0=3500000 +y_0=0 +ellps=GRS80 +units=m +no_defs`
 
-Me interesa construir puentes entre la ciencia y su aplicación práctica: desde herramientas de monitoreo hasta la evaluación de proyectos de carbono a distintas escalas.
+> ⚠️ **Nota sobre el sistema de coordenadas**: se detectó que el header original de la planilla (`x, y`) no corresponde a la convención habitual IGN (Norte, Este). Tras verificación con transformación inversa de Gauss-Krüger contra la ubicación real del Dique Frontal, se confirmó que `x = Este` y `y = Norte`. Además, `EPSG:22183` puede producir resultados incorrectos (desplazamiento a coordenadas erróneas) en herramientas que respeten estrictamente el orden de ejes oficial de la definición EPSG al reproyectar contra otros CRS (p. ej. superponer capas web en Web Mercator); se recomienda usar la definición PROJ4 explícita para evitar ese problema.
 
----
+## Metodología
 
-## Investigación doctoral
+1. **Limpieza de datos**: extracción de puntos (`x`, `y`, profundidad, cota) desde la planilla original, resolución de fórmulas de cota respecto al nivel de agua del día.
+2. **Definición del perímetro**: polígono de recorte a partir de la traza del perímetro navegado, para evitar extrapolar fuera del cuerpo de agua.
+3. **Interpolación espacial**: `scipy.interpolate.griddata` (método `linear`, con relleno `nearest` para huecos fuera del casco convexo de puntos) sobre una grilla regular de 30 m/píxel.
+4. **Recorte**: máscara del raster interpolado al polígono del perímetro navegado (`rasterio.features.geometry_mask`).
+5. **Capa de confianza**: raster complementario de distancia al punto medido más cercano (`scipy.spatial.cKDTree`), para identificar zonas con baja densidad de muestreo real (interior del embalse, entre transectas).
+6. **Exportación**: GeoTIFF georreferenciado (`rasterio`).
 
-**Doctorado en Ciencias Biológicas · UNSE | CONICET**  
-> *"Trayectorias de uso del suelo y dinámica del carbono en el Chaco Seco: implicancias para el balance y la captura de carbono"*
-> 
-**Dirección:** Dr. Hugo Zerda · **Codirección:** Dr. Néstor Ignacio Gasparri (IER-CONICET)
+## Salidas
 
-El proyecto integra cuatro etapas metodológicas interdependientes:
+| Archivo | Descripción |
+|---|---|
+| `rio_hondo_profundidad_2001.tif` | Raster de profundidad interpolada (metros, negativo = bajo el nivel de agua de referencia) |
+| `rio_hondo_confianza_2001.tif` | Raster de distancia (metros) al punto medido más cercano |
 
-| Etapa | Descripción |
-|-------|-------------|
-|**Trayectorias de uso del suelo** | Clasificación supervisada (Random Forest, SVM) sobre series temporales Landsat/Sentinel/MODIS (2000–actualidad) mediante GEE; análisis de secuencias y clustering para identificar patrones de deforestación, abandono y regeneración |
-|**Balance de carbono** | Estimación de carbono en biomasa aérea mediante modelos estadísticos y ML, validados con parcelas permanentes del IER; métricas: RMSE, R², Bias |
-|**Modelado predictivo** | Modelos XGBoost y redes neuronales para predecir el potencial de captura futura bajo distintos escenarios; variables predictoras: trayectorias históricas, clima, suelo, topografía y factores antrópicos |
-|**Herramienta operativa** | GEE App replicable y adaptable para estimación de balance de carbono a escala predial, con visualización, exportación de resultados y escalamiento regional |
+## Limitaciones conocidas
 
----
+- **Cobertura desigual**: el perímetro está densamente muestreado, pero el interior del embalse solo cuenta con un número reducido de transectas, separadas por varios kilómetros. La capa de confianza debe consultarse junto con el raster de profundidad antes de usar valores del interior del lago.
+- **Vigencia del dato**: el relevamiento es de 2001. La morfología del lecho puede haber cambiado por sedimentación; no representa necesariamente la batimetría actual.
+- **Artefactos de interpolación lineal**: el método `linear` de `griddata` genera facetas/triangulaciones visibles en zonas de baja densidad de puntos; es un efecto esperable de la técnica, no un error de datos.
 
-## Stack técnico
+## Requisitos
 
-**Lenguajes & entornos**
+```
+pandas
+numpy
+scipy
+shapely
+rasterio
+matplotlib
+```
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Google Earth Engine](https://img.shields.io/badge/Google%20Earth%20Engine-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![QGIS](https://img.shields.io/badge/QGIS-589632?style=for-the-badge&logo=qgis&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+## Autoría
 
-**Librerías geoespaciales**
-
-![GeoPandas](https://img.shields.io/badge/GeoPandas-139C5A?style=for-the-badge)
-![Rasterio](https://img.shields.io/badge/Rasterio-CC0000?style=for-the-badge)
-![Leafmap](https://img.shields.io/badge/Leafmap-00BFFF?style=for-the-badge)
-![Geemap](https://img.shields.io/badge/Geemap-4285F4?style=for-the-badge)
-
-**Machine Learning & análisis**
-
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-189AD3?style=for-the-badge)
-
-**Sensores & datos satelitales:** Landsat · Sentinel-2 · MODIS · GEDI  
-**Índices espectrales:** NDVI · EVI · SAVI
-
----
-
-## Proyectos
-
-| Repositorio | Descripción | Estado |
-|-------------|-------------|--------|
-| `chaco-land-trajectories` | Clasificación supervisada y análisis de trayectorias de uso del suelo en el Chaco Seco 2000–2024 | 🔄 En desarrollo |
-| `chaco-carbon-balance` | Estimación del balance de carbono en biomasa aérea según trayectorias de uso del suelo | 📋 Próximamente |
-| `carbon-capture-model` | Modelos predictivos (XGBoost / redes neuronales) del potencial de captura de carbono | 📋 Próximamente |
-| `gee-carbon-app` | Herramienta operativa en Google Earth Engine para estimación de carbono a escala predial | 📋 Próximamente |
-
----
-
-## Hacia dónde voy
-
-- **Consultoría ambiental** orientada a EIA, monitoreo de bosques y planificación territorial en el NOA
-- **Mercados de carbono** (REDD+, VCS/Verra) — estimación de líneas base y MRV en el Chaco Seco
-- **Peritaje judicial ambiental** en causas vinculadas a deforestación y uso del suelo
-- **Transferencia tecnológica** — herramientas geoespaciales accesibles para productores y técnicos rurales
-
----
-
-## 📫 Contacto
-
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pablocorbalan9898@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-corbalan-34982b2ba/)
-[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)]()
-
----
-
-*El Chaco Seco es el segundo ecosistema forestal más extenso de Sudamérica y uno de los que más rápido se transforma. Entender esa transformación desde los datos es parte de lo que hago.*
----
+Procesamiento y análisis: [tu nombre/usuario]
+Datos originales: relevamiento batimétrico Río Hondo, julio 2001
